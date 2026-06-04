@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0f172a;
+  --foreground: #ffffff;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+@layer utilities {
+  .glass {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .character-shadow {
+    filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.5));
+  }
+
+  .portal-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0%;
+    height: 0%;
+    filter: blur(30px);
+    border-radius: 50%;
+    opacity: 0;
+    z-index: -1;
+  }
+
+  .glitch-active {
+    text-shadow: 2px 0 #ff0000, -2px 0 #00ffff;
+    animation: glitch-anim 0.2s infinite;
+  }
+}
+
+@keyframes glitch-anim {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+@layer utilities {
+  .glass {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+  }
+}
